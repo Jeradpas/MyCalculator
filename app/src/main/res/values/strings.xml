@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="what_is_your_calculus">What is your calculus ?</string>
+    <string name="result"></string>
+</resources>
