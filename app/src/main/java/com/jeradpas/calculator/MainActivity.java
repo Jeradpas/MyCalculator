@@ -78,17 +78,31 @@ public class MainActivity extends AppCompatActivity {
         editText.setText(editText.getText().delete(length - 1, length));
     }
 
-    public List<String> analyse(String string){
-        int length=string.length();
-        List<String[]> text=new ArrayList<>();
-        System.out.println("this is string "+string);
-        String[] split = string.split("[-x/+]");
+    public List<String> analyse(String string) {
+        int length = string.length();
+        System.out.println("Longueur de string "+length);
+        List<String> text = new ArrayList<>();
+        List<String> ope = new ArrayList<>();
+        ope.add("+");
+        ope.add("-");
+        ope.add("x");
+        ope.add("/");
+        int previous = 0;
 
-        for( String i:split){
-            System.out.println("this is split "+i);
-        }
+        for (int i = 0; i < length; i++) {
 
-        return Arrays.asList(split);
-    }
+            if (ope.contains(string.substring(i, i + 1))) {
+                text.add(string.substring(previous, i));
+                text.add(string.substring(i, i + 1));
+                previous = i + 1;
+            }
+           }
+        text.add(string.substring(previous, length));
 
-    }
+        System.out.println("this is string " + string);
+        System.out.println("Is it good ? " + text);
+
+
+        return text;
+
+    }}
