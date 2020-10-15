@@ -32,10 +32,46 @@
         android:rowCount="5">
 
         <Button
-            android:id="@+id/b7"
+            android:id="@+id/b_clear"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:text="C"
+            />
+
+        <Button
+            android:id="@+id/b_divide"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:text="/"
+            />
+
+        <Button
+            android:id="@+id/b_times"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:text="x"
+            />
+
+        <Button
+            android:id="@+id/b_delete"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:text="Del"
+            />
+
+        <Button
+            android:id="@+id/b7"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
             android:layout_rowWeight="1"
             android:text="7"
              />
@@ -44,7 +80,7 @@
             android:id="@+id/b8"
             android:layout_column="1"
             android:layout_columnWeight="1"
-            android:layout_row="0"
+            android:layout_row="1"
             android:layout_rowWeight="1"
             android:text="8"
             />
@@ -53,25 +89,16 @@
             android:id="@+id/b9"
             android:layout_column="2"
             android:layout_columnWeight="1"
-            android:layout_row="0"
+            android:layout_row="1"
             android:layout_rowWeight="1"
             android:text="9"
-            />
-
-        <Button
-            android:id="@+id/bx"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_row="0"
-            android:layout_rowWeight="1"
-            android:text="x"
             />
 
         <Button
             android:id="@+id/b4"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_rowWeight="1"
             android:text="4"
             />
@@ -80,7 +107,7 @@
             android:id="@+id/b5"
             android:layout_column="1"
             android:layout_columnWeight="1"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_rowWeight="1"
             android:text="5"
             />
@@ -89,13 +116,22 @@
             android:id="@+id/b6"
             android:layout_column="2"
             android:layout_columnWeight="1"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_rowWeight="1"
             android:text="6"
             />
 
         <Button
-            android:id="@+id/bm"
+            android:id="@+id/b_plus"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:text="+" />
+
+
+        <Button
+            android:id="@+id/b_moins"
             android:layout_column="3"
             android:layout_columnWeight="1"
             android:layout_row="1"
@@ -107,7 +143,7 @@
             android:id="@+id/b1"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:layout_row="2"
+            android:layout_row="3"
             android:layout_rowWeight="1"
             android:text="1"
             />
@@ -116,7 +152,7 @@
             android:id="@+id/b2"
             android:layout_column="1"
             android:layout_columnWeight="1"
-            android:layout_row="2"
+            android:layout_row="3"
             android:layout_rowWeight="1"
             android:text="2"
             />
@@ -125,60 +161,46 @@
             android:id="@+id/b3"
             android:layout_column="2"
             android:layout_columnWeight="1"
-            android:layout_row="2"
+            android:layout_row="3"
             android:layout_rowWeight="1"
             android:text="3"
             />
 
-        <Button
-            android:id="@+id/bp"
-            android:layout_column="3"
+
+        <Space
+            android:layout_column="0"
             android:layout_columnWeight="1"
-            android:layout_row="2"
-            android:layout_rowWeight="1"
-            android:text="+" />
+            android:layout_row="4"
+            android:layout_rowWeight="1" />
 
         <Button
             android:id="@+id/b0"
-            android:layout_column="0"
+            android:layout_column="1"
             android:layout_columnWeight="1"
-            android:layout_row="3"
+            android:layout_row="4"
             android:layout_rowWeight="1"
             android:text="0"
             />
 
         <Button
-            android:id="@+id/bv"
-            android:layout_column="1"
+            android:id="@+id/b_coma"
+            android:layout_column="2"
             android:layout_columnWeight="1"
-            android:layout_row="3"
+            android:layout_row="4"
             android:layout_rowWeight="1"
             android:text=","
             />
 
         <Button
-            android:id="@+id/be"
-            android:layout_column="2"
-            android:layout_columnSpan="2"
+            android:id="@+id/b_equal"
+            android:layout_column="3"
+            android:layout_rowSpan="2"
             android:layout_columnWeight="1"
             android:layout_row="3"
             android:layout_rowWeight="1"
             android:text="=" />
 
-        <Space
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_columnSpan="3"
-            android:layout_row="4"
-            android:layout_rowWeight="1" />
-        <Button
-            android:id="@+id/bdel"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_row="4"
-            android:layout_rowWeight="1"
-            android:text="Del"
-            />
+
 
 
     </GridLayout>
