@@ -63,7 +63,111 @@ public class MainActivity extends AppCompatActivity {
         Double result= Double.valueOf(0);
         EditText editText = (EditText) findViewById(R.id.editText);
         String str=editText.getText().toString();
-        analyse(str);
+        List<String> list=analyse(str);
+        List<String> operands=new ArrayList<>();
+        List<Double> numbers=new ArrayList<>();
+
+        for (int i=0;i<list.size();i++){
+            if(i%2==0){
+                numbers.add(Double.parseDouble(list.get(i)));
+            }
+            else operands.add(list.get(i));
+        }
+
+        System.out.println(operands);
+        System.out.println(numbers);
+        List<Double> ghost=new ArrayList<>();
+        ghost.addAll(numbers);
+        int index;
+        List<Integer> indexes=new ArrayList<>();
+
+
+            for (String op:operands){
+
+                System.out.println("Etape 1");
+                if (op.equals("x")){
+                    System.out.println("Je vois un x");
+                    index=operands.indexOf(op);
+                    indexes.add(index);
+                    double x=ghost.get(index);
+                    System.out.println("X " +x);
+                    System.out.println("Index "+index);
+                    double y=ghost.get(index+1);
+                    ghost.remove(index);
+                    ghost.remove(index);
+                    ghost.add(index,x*y);
+
+                }
+            }
+            for(int i:indexes){
+                System.out.println("Supprime moi!!! "+i);
+                operands.remove(i);
+            }
+            System.out.println("Avancement calcul"+ghost);
+            System.out.println("Calculs restants"+operands);
+
+            indexes.clear();
+            for (String op:operands){
+
+                System.out.println("Etape 2");
+                if (op.equals("/")){
+                    System.out.println("Je vois un x");
+                    index=operands.indexOf(op);
+                    indexes.add(index);
+                    double x=ghost.get(index);
+                    System.out.println("X " +x);
+                    System.out.println("Index "+index);
+                    double y=ghost.get(index+1);
+                    ghost.remove(index);
+                    ghost.remove(index);
+                    ghost.add(index,x/y);
+
+                }
+            }
+            for(int i:indexes) operands.remove(i);
+
+            indexes.clear();
+            for (String op:operands){
+
+                System.out.println("Etape 3");
+                if (op.equals("-")){
+                    System.out.println("Je vois un -");
+                    index=operands.indexOf(op);
+                    indexes.add(index);
+                    double x=ghost.get(index);
+                    System.out.println("X " +x);
+                    System.out.println("Index "+index);
+                    double y=ghost.get(index+1);
+                    ghost.remove(index);
+                    ghost.remove(index);
+                    ghost.add(index,x-y);
+
+                }
+            }
+            for(int i:indexes) operands.remove(i);
+
+            indexes.clear();
+            for (String op:operands){
+
+                System.out.println("Etape 4");
+                if (op.equals("+")){
+                    System.out.println("Je vois un +");
+                    index=operands.indexOf(op);
+                    indexes.add(index);
+                    double x=ghost.get(index);
+                    System.out.println("X " +x);
+                    System.out.println("Index "+index);
+                    double y=ghost.get(index+1);
+                    ghost.remove(index);
+                    ghost.remove(index);
+                    ghost.add(index,x+y);
+
+                }
+            }
+            for(int i:indexes) operands.remove(i);
+
+
+        result=ghost.get(0);
         return result;
     }
 
@@ -75,12 +179,13 @@ public class MainActivity extends AppCompatActivity {
     public void erase(View v){
         EditText editText = (EditText) findViewById(R.id.editText);
         int length = editText.getText().length();
-        editText.setText(editText.getText().delete(length - 1, length));
+        if (length>0) {
+            editText.setText(editText.getText().delete(length - 1, length));
+        }
     }
 
     public List<String> analyse(String string) {
         int length = string.length();
-        System.out.println("Longueur de string "+length);
         List<String> text = new ArrayList<>();
         List<String> ope = new ArrayList<>();
         ope.add("+");
@@ -99,8 +204,8 @@ public class MainActivity extends AppCompatActivity {
            }
         text.add(string.substring(previous, length));
 
-        System.out.println("this is string " + string);
-        System.out.println("Is it good ? " + text);
+//        System.out.println("this is string " + string);
+//        System.out.println("Is it good ? " + text);
 
 
         return text;
