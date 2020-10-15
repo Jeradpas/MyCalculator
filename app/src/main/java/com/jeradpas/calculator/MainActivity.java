@@ -30,26 +30,33 @@ public class MainActivity extends AppCompatActivity {
         final Button btn8 = (Button) findViewById(R.id.b8);
         final Button btn9 = (Button) findViewById(R.id.b9);
 
-        final Button bp = (Button) findViewById(R.id.bp);
-        final Button be = (Button) findViewById(R.id.be);
-        final Button bm = (Button) findViewById(R.id.bm);
-        final Button bx = (Button) findViewById(R.id.bx);
-        final Button bv = (Button) findViewById(R.id.bv);
-        final Button bdel = (Button) findViewById(R.id.bdel);
+        final Button bp = (Button) findViewById(R.id.b_plus);
+        final Button be = (Button) findViewById(R.id.b_equal);
+        final Button bm = (Button) findViewById(R.id.b_moins);
+        final Button bx = (Button) findViewById(R.id.b_times);
+        final Button bv = (Button) findViewById(R.id.b_coma);
+        final Button bdel = (Button) findViewById(R.id.b_delete);
+        final Button bclear= (Button) findViewById(R.id.b_clear);
 
-        Button[] buttons={btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,bp,be,bm,bx,bv,bdel};
+        Button[] buttons={btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,bp,be,bm,bx,bv,bdel,bclear};
 
         for (final Button btn: buttons){
         btn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               if (v==findViewById(R.id.bdel)) erase(v);
-               else if (v==findViewById(R.id.be)) updateResult(v);
+               if (v==findViewById(R.id.b_delete)) erase(v);
+               else if (v==findViewById(R.id.b_clear)) clearText(v);
+               else if (v==findViewById(R.id.b_equal)) updateResult(v);
                else updateCalculus(v,btn);
             }
        });
         }
 
+    }
+
+    private void clearText(View v) {
+        EditText editText = (EditText) findViewById(R.id.editText);
+        editText.setText("");
     }
 
     private void updateResult(View v) {
@@ -173,7 +180,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateCalculus(View v,Button btn) {
         EditText editText = (EditText) findViewById(R.id.editText);
-        editText.setText(editText.getText()+btn.getText().toString());
+        if (btn.getText().toString().equals(",")){
+            editText.setText(editText.getText()+".");
+        }
+        else {
+            editText.setText(editText.getText()+btn.getText().toString());
+        }
     }
 
     public void erase(View v){
