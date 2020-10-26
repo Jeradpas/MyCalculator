@@ -3,22 +3,33 @@ package com.jeradpas.calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mToggle;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
-        mDrawerLayout.addDrawerListener(mToggle);
-        mToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         final Button btn0 = (Button) findViewById(R.id.b0);
         final Button btn1 = (Button) findViewById(R.id.b1);
@@ -54,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         for (final Button btn: buttons){
         btn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               if (v==findViewById(R.id.b_delete)) erase(v);
+                   @Override
+                   public void onClick(View v) {
+                       if (v==findViewById(R.id.b_delete)) lancerActi2();
                else if (v==findViewById(R.id.b_clear)) clearText(v);
                else if (v==findViewById(R.id.b_equal)) updateResult(v);
                else updateCalculus(v,btn);
@@ -64,15 +72,73 @@ public class MainActivity extends AppCompatActivity {
        });
         }
 
-    }
+    // 6 - Configure all views
+
+        this.configureToolBar();
+        this.configureDrawerLayout();
+        this.configureNavigationView();
+}
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)){
-            return true;
+    public void onBackPressed() {
+        // 5 - Handle back click to close menu
+        if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-        return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        // 4 - Handle Navigation Item Click
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.converter:
+                lancerActi2();
+                break;
+
+        }
+        this.mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    // ---------------------
+    // CONFIGURATION
+    // ---------------------
+
+    // 1 - Configure Toolbar
+    private void configureToolBar(){
+        this.toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    // 2 - Configure Drawer Layout
+    private void configureDrawerLayout(){
+        this.mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    // 3 - Configure NavigationView
+    private void configureNavigationView(){
+        this.navigationView = (NavigationView) findViewById(R.id.activity_main_nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void lancerActi2(){
+        Intent intent= new Intent(this,AfficheMessage.class);
+        startActivity(intent);
+    }
+
+    // --------------------
+    // CALCULATRICE
+    // --------------------
+
 
     private void clearText(View v) {
         EditText editText = (EditText) findViewById(R.id.editText);
@@ -235,11 +301,5 @@ public class MainActivity extends AppCompatActivity {
             }
            }
         text.add(string.substring(previous, length));
-
-//        System.out.println("this is string " + string);
-//        System.out.println("Is it good ? " + text);
-
-
-        return text;
-
-    }}
+        return text;}
+}

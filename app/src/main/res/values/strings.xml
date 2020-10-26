@@ -4,4 +4,10 @@
     <string name="result"></string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="title_activity2">Converter</string>
+    <string-array name="units">
+        <item>Celsius</item>
+        <item>Kelvin</item>
+        <item>Fahrenheit</item>
+    </string-array>
 </resources>
