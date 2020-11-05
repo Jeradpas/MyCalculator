@@ -9,7 +9,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MasseConverter"
+            android:label="@string/masse"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CurrencyConverter"
+            android:label="@string/devise"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TemperatureConverter"
+            android:label="@string/temperature"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LengthConverter"
+            android:label="@string/longueur"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Imc"
+            android:label="@string/imc"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VolumeConverter"
+            android:label="@string/volume"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SurfaceConverter"
+            android:label="@string/surface"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AfficheMessage"
+            android:label="@string/title_activity2"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
