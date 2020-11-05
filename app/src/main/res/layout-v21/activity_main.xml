@@ -217,7 +217,7 @@
         app:itemIconTint="@color/darkgray"
         app:itemTextColor="@color/darkgray"
         app:menu="@menu/drawermenu"
-        android:visibility="gone">
+        >
 
     </com.google.android.material.navigation.NavigationView>
 
