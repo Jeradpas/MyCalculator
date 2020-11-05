@@ -167,17 +167,20 @@
                 android:text="3" />
 
 
-            <Space
+
+            <Button
+                android:id="@+id/b_signe"
                 android:layout_row="4"
                 android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1" />
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:text="( - )" />
 
             <Button
                 android:id="@+id/b0"
                 android:layout_row="4"
                 android:layout_rowWeight="1"
-                android:layout_column="1"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:text="0" />
 
@@ -213,7 +216,8 @@
         app:headerLayout="@layout/header"
         app:itemIconTint="@color/darkgray"
         app:itemTextColor="@color/darkgray"
-        app:menu="@menu/drawermenu">
+        app:menu="@menu/drawermenu"
+        android:visibility="gone">
 
     </com.google.android.material.navigation.NavigationView>
 

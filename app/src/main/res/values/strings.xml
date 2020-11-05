@@ -5,9 +5,61 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity2">Converter</string>
-    <string-array name="units">
+    <string name="unit_de_depart">Unité de départ</string>
+    <string name="unit_d_arrive">Unité d\'arrivée</string>
+    <string name="what_to_convert">A convertir</string>
+
+    <string name="longueur">Longueur</string>
+    <string name="surface">Surface</string>
+    <string name="volume">Volume</string>
+    <string name="masse">Masse</string>
+    <string name="temperature">Température</string>
+    <string name="devise">Devise</string>
+    <string name="indice_taille">Indiquez votre taille en cm</string>
+    <string name="indice_masse">Indiquez votre masse en kg</string>
+    <string name="calculer">Calculer</string>
+    <string name="imc">IMC</string>
+
+    <string-array name="longueur">
+        <item>Kilometre</item>
+        <item>Metre</item>
+        <item>Yard</item>
+        <item>Mile</item>
+        <item>Pouce</item>
+        <item>Pied</item>
+    </string-array>
+
+    <string-array name="masse">
+        <item>Kilogramme</item>
+        <item>Gramme</item>
+        <item>Livre</item>
+        <item>Once</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>Euro</item>
+        <item>Dollar</item>
+        <item>Yen</item>
+        <item>Livre Sterling</item>
+    </string-array>
+
+    <string-array name="volume">
+        <item>Litre</item>
+        <item>m^3</item>
+    </string-array>
+
+    <string-array name="temperature">
         <item>Celsius</item>
         <item>Kelvin</item>
         <item>Fahrenheit</item>
     </string-array>
+
+    <string-array name="surface">
+        <item>Kilometre carre</item>
+        <item>Metre carre</item>
+        <item>Hectare</item>
+        <item>Acre</item>
+    </string-array>
+
+
 </resources>
